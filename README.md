@@ -11,3 +11,50 @@ Make sure that you have setup the environment properly. You will need minimum PH
 7. Run `npm install`
 8. Run `npm run build` to build assets
 9. Start local server by executing `php artisan serve`
+
+## Features
+
+- Role-based access control using Spatie's laravel-permission package
+- Three predefined user roles:
+  - Super Admin
+  - Admin
+  - Product Manager
+- Permission-based access restriction
+- CRUD operations for:
+  - Users
+  - Roles
+  - Products
+- Role assignment to users
+- Permission assignment to roles
+- Bootstrap 5-based UI
+- Laravel 10, PHP 8.1+, MySQL-compatible
+
+## Default User Roles and Permissions
+
+### Super Admin
+
+- Has unrestricted access to the entire system.
+- Permissions are bypassed using `Gate::before` in `AuthServiceProvider`.
+- Can manage roles, users, and products without limitation.
+
+### Admin
+
+- Has full access to manage users, roles, and products.
+- Assigned permissions:
+- create-role
+- edit-role
+- delete-role
+- create-user
+- edit-user
+- delete-user
+- create-product
+- edit-product
+- delete-product
+
+### Product Manager
+
+- Has limited access to manage only products.
+- Assigned permissions:
+- create-product
+- edit-product
+- delete-product
