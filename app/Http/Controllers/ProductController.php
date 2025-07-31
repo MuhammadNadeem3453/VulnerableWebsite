@@ -31,7 +31,7 @@ class ProductController extends Controller
         $storerequestname = $request->name;
         $storerequestdescription = $request->description;
         $storerequestprice = $request->price;
-        DB::insert("INSERT INTO products (name, description, price) VALUES ('$request->name', '$request->description', '$request->price')");
+        DB::insert("INSERT INTO products (name, description) VALUES ('$request->name', '$request->description')");
         return redirect()->route('products.index')
             ->with('success', 'Product created.');
     }
@@ -55,7 +55,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $productId = $id;
-        DB::update("UPDATE products SET name = '$request->name', description = '$request->description', price = '$request->price' WHERE id = $id");
+        DB::update("UPDATE products SET name = '$request->name', description = '$request->description' WHERE id = $id");
         return redirect()->route('products.index')
             ->with('success', 'Product updated.');
     }
